@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>Clientes</h1>
+    <div class="card">
+  <div class="card-header">
+      
+    </div>
+    <table class="table table-striped">
+         <tr>
+             <th> Nombre Completo </th>
+             <th> Tipo Persona </th>
+             <th> Razon Social </th>
+             <th> RFC </th>
+             <th> CURP </th>
+             <th> Domicilio </th>
+             <th> Acciones </th>
+         </tr>
+        @foreach (var cliente in Model)
+        {
+           <tr>
+              <td> @cliente.NombreCompleto </td>
+              <td> @cliente.TipoPersona </td>
+              <td> @cliente.RazonSocial </td>
+              <td> @cliente.Rfc </td>
+              <td> @cliente.Curp </td>
+              <td> @cliente.Domicilio </td>
+              <td>
+                  <a asp-action="ClienteId" asp-controller="Home" asp-route-idCliente="@cliente.Id" type="button" class="btn btn-primary btn-sm"> Ver </a>
+                  <a asp-action="BorrarClienteId" asp-controller="Home" asp-route-idCliente="@cliente.Id" type="button" class="btn btn-danger btn-sm"> Eliminar </a>
+              </td>
+           </tr> 
+        }
+    
+    </table>
+    
+   </div>

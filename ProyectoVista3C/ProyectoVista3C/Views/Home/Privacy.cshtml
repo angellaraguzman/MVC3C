@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>Contactos</h1>
+
+  <div class="card">
+  <div class="card-header">
+  </div>
+    <table class="table table-striped">
+         <tr>
+             <th> Id </th>
+             <th> Nombre Completo </th>
+             <th> Correo</th>
+             <th> Téfono </th>
+             <th> Acciones </th>
+         </tr>
+        @foreach (var contacto in Model)
+        {
+           <tr>
+              <td> @contacto.Id </td>
+              <td> @contacto.NombreCompleto </td>
+              <td> @contacto.Correo </td>
+              <td> @contacto.Telefono </td>
+              <td>
+                  <a asp-action="ContactoId" asp-controller="Home" asp-route-idContacto="@contacto.Id" type="button" class="btn btn-primary btn-sm"> Ver </a>
+                  <a asp-action="BorrarContactoId" asp-controller="Home" asp-route-idContacto="@contacto.Id" type="button" class="btn btn-danger btn-sm"> Eliminar </a>
+              </td>
+           </tr> 
+        }
+    
+    </table>
+    
+   </div>
